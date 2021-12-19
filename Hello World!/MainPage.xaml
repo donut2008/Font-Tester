@@ -1,0 +1,48 @@
+﻿<Page x:Name="page"
+    x:Class="Hello_World_.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Hello_World_"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="Black">
+
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.ThemeDictionaries>
+                <ResourceDictionary x:Key="Default">
+
+                    <AcrylicBrush x:Key="MyAcrylicBrush"
+                              BackgroundSource="HostBackdrop"
+                              TintColor="Black"
+                              TintOpacity="0.1"
+                              TintLuminosityOpacity="1"
+                              />
+                </ResourceDictionary>
+            </ResourceDictionary.ThemeDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+
+    <Grid Background="{ThemeResource MyAcrylicBrush}" x:Name="gridofthemall" Margin="0,0,0,0" Padding="0,0,0,0" VerticalAlignment="Stretch">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Grid x:Name="swaggytextblock" Margin="15,0,15,0">
+            <TextBlock 
+                x:Name="padding" 
+                OpticalMarginAlignment="None" 
+                Padding="0,0,0,0" 
+                FontSize="{Binding Value, ElementName=SliderRozmiar}"  TextWrapping="Wrap" TextReadingOrder="DetectFromContent" Text="{Binding Text, ElementName=textBox}" TextDecorations="None" TextAlignment="Center" Margin="100,100,100,145" Width="{Binding Width, ElementName=textBox}" TextLineBounds="Tight" FontFamily="{Binding Text, ElementName=textBox2}" LineStackingStrategy="BlockLineHeight" LineHeight="{Binding FontSize, ElementName=padding}"/>
+        </Grid>
+        <Grid MaxWidth="500" VerticalAlignment="Bottom" Margin="15,0,15,10">
+            <Slider x:Name="SliderRozmiar" Minimum="15" Maximum="50" RequestedTheme="Dark" FocusVisualPrimaryBrush="{ThemeResource SystemAccentColor}" ValueChanged="SliderRozmiar_ValueChanged" VerticalAlignment="Bottom" FocusVisualMargin="0,0,0,0" UseLayoutRounding="False" Padding="0,15,0,0" MinHeight="50"/>
+            <TextBox x:Name="textBox" PlaceholderText="What text do ya want to test?" MaxHeight="32" Margin="0,-41,0,41" FocusVisualMargin="0,0,0,0" UseLayoutRounding="False"/>
+            <TextBox x:Name="textBox2" PlaceholderText="What's the font family?" MaxHeight="32" Margin="0,-78,0,78" FocusVisualMargin="0,0,0,0" UseLayoutRounding="False"/>
+        </Grid>
+
+    </Grid>
+</Page>
