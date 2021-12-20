@@ -10,4 +10,5 @@ Make sure you unpacked the ZIP file in the releases section to its own folder.
 3. press A, and then Enter on your keyboard to allow for using third-party scripts.
 4. open the ```Install.ps1``` file in PowerShell by typing in/pasting ```.\Install.ps1```
 5. follow the instructions in the script
+
 Good luck!
