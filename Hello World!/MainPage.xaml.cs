@@ -27,6 +27,14 @@ namespace Hello_World_
             this.InitializeComponent();
         }
 
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+
+            var fonts = Microsoft.Graphics.Canvas.Text.CanvasTextFormat.GetSystemFontFamilies();
+            comboFonts.ItemsSource = fonts;
+        }
+
         private void SliderRozmiar_ValueChanged(object sender, RangeBaseValueChangedEventArgs e)
         {
 
