@@ -5,27 +5,11 @@
     xmlns:local="using:Hello_World_"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
     xmlns:canvas="using:Microsoft.Graphics.Canvas.UI.Xaml"
     mc:Ignorable="d"
-    Background="Black">
-
-    <Page.Resources>
-        <ResourceDictionary>
-            <ResourceDictionary.ThemeDictionaries>
-                <ResourceDictionary x:Key="Default">
-
-                    <AcrylicBrush x:Key="MyAcrylicBrush"
-                              BackgroundSource="HostBackdrop"
-                              TintColor="Black"
-                              TintOpacity="0.1"
-                              TintLuminosityOpacity="1"
-                              />
-                </ResourceDictionary>
-            </ResourceDictionary.ThemeDictionaries>
-        </ResourceDictionary>
-    </Page.Resources>
-
-    <Grid Background="{ThemeResource MyAcrylicBrush}" x:Name="gridofthemall" Margin="0,0,0,0" Padding="0,0,0,0" VerticalAlignment="Stretch">
+    muxc:BackdropMaterial.ApplyToRootOrPageBackground="True">
+    <Grid x:Name="gridofthemall" Margin="0,0,0,0" Padding="0,0,0,0" VerticalAlignment="Stretch">
 
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
