@@ -42,16 +42,16 @@ namespace Hello_World_
             comboFonts.ItemsSource = fonts;
         }
 
-        private void workyoustupidass(object sender, RoutedEventArgs e)
+        private void button(object sender, RoutedEventArgs e)
         {
-            bitch.Visibility = Visibility.Collapsed;
+            settinggrid.Visibility = Visibility.Collapsed;
             this.settingsActivator.Visibility = Visibility.Collapsed;
             this.settingsDisabler.Visibility = Visibility.Visible;
         }
 
-        private void workyoustupidass2(object sender, RoutedEventArgs e)
+        private void button2(object sender, RoutedEventArgs e)
         {
-            bitch.Visibility = Visibility.Visible;
+            settinggrid.Visibility = Visibility.Visible;
             this.settingsDisabler.Visibility = Visibility.Collapsed;
             this.settingsActivator.Visibility = Visibility.Visible;
         }

@@ -1,12 +1,15 @@
-﻿<Page x:Name="page"
+﻿<!-- The page's background uses the Mica material -->
+    <Page x:Name="page"
     x:Class="Hello_World_.MainPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-      xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
     muxc:BackdropMaterial.ApplyToRootOrPageBackground="True"
     mc:Ignorable="d">
+        
+<!-- Brush using Acrylic -->
     <Page.Resources>
         <AcrylicBrush x:Key="CMapUwpAcrylicBrush"
               BackgroundSource="Backdrop"
@@ -14,25 +17,66 @@
               TintOpacity="0.4"
               FallbackColor="{StaticResource SystemAccentColor}"/>
     </Page.Resources>
-    <Grid x:Name="gridofthemall" Margin="0,0,0,0" Padding="0,0,0,0" VerticalAlignment="Stretch">
-
+        
+<!-- Main container -->
+    <Grid x:Name="gridofthemall"
+          Margin="0,0,0,0"
+          Padding="0,0,0,0"
+          VerticalAlignment="Stretch">
+        
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-        <Button x:Name="settingsActivator" Click="workyoustupidass" VerticalAlignment="Top" VerticalContentAlignment="Top" HorizontalAlignment="Center" Margin="0,25,0,0" FontStretch="Expanded">
-            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                <TextBlock FontSize="18" FontFamily="Segoe Fluent Icons, Segoe UI" VerticalAlignment="Center">&#xe711;</TextBlock>
-                <TextBlock Margin="5,0,0,0" VerticalAlignment="Center">Hide the settings</TextBlock>
+<!-- Buttons to open settings -->
+        <Button x:Name="settingsActivator"
+                Click="button"
+               VerticalAlignment="Top"
+                VerticalContentAlignment="Top"
+                HorizontalAlignment="Center"
+                Margin="0,25,0,0"
+                FontStretch="Expanded">
+<!-- Content of the button -->
+            <StackPanel Orientation="Horizontal"
+                        VerticalAlignment="Center">
+                <TextBlock FontSize="18"
+                           FontFamily="Segoe Fluent Icons, Segoe UI"
+                           VerticalAlignment="Center">
+                    &#xe711;
+                </TextBlock>
+                <TextBlock Margin="5,0,0,0"
+                           VerticalAlignment="Center">
+                    Hide the settings
+                </TextBlock>
             </StackPanel>
         </Button>
-        <Button x:Name="settingsDisabler" Click="workyoustupidass2" VerticalAlignment="Top" VerticalContentAlignment="Top" HorizontalAlignment="Center" Margin="0,25,0,0" FontStretch="Expanded">
-            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                <TextBlock FontSize="18" FontFamily="Segoe Fluent Icons, Segoe UI" VerticalAlignment="Center">&#xe713;</TextBlock>
-                <TextBlock Margin="5,0,0,0" VerticalAlignment="Center">Settings</TextBlock>
+<!-- Button to close settings-->
+        <Button x:Name="settingsDisabler"
+                Click="button2"
+                VerticalAlignment="Top"
+                VerticalContentAlignment="Top"
+                HorizontalAlignment="Center"
+                Margin="0,25,0,0"
+                FontStretch="Expanded">
+<!-- Content of the button -->
+            <StackPanel
+                Orientation="Horizontal"
+                VerticalAlignment="Center">
+                <TextBlock
+                    FontSize="18"
+                    FontFamily="Segoe Fluent Icons, Segoe UI"
+                    VerticalAlignment="Center">
+                    &#xe713;
+                </TextBlock>
+                
+                <TextBlock
+                    Margin="5,0,0,0"
+                    VerticalAlignment="Center">Settings</TextBlock>
             </StackPanel>
         </Button>
-        <ScrollViewer x:Name="swaggytextblock" Margin="20,80,20,20">
+<!-- Text preview -->
+        <ScrollViewer x:Name="swaggytextblock"
+                      Margin="20,80,20,20">
             <TextBlock 
                 x:Name="padding" 
                 OpticalMarginAlignment="None" 
@@ -42,21 +86,68 @@
                 TextWrapping="Wrap"
                 TextReadingOrder="DetectFromContent"
                 Text="{Binding Text, ElementName=textBox}"
-                TextDecorations="None" TextAlignment="Center"
+                TextDecorations="None"
+                TextAlignment="Center"
                 TextLineBounds="Tight"
                 FontFamily="{Binding SelectedItem, ElementName=comboFonts}"
-                LineStackingStrategy="BlockLineHeight" HorizontalAlignment="Center" VerticalAlignment="Center" IsHitTestVisible="False" LineHeight="{Binding Value, ElementName=SliderRozmiar}"/>
+                LineStackingStrategy="BlockLineHeight"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                IsHitTestVisible="False"
+                LineHeight="{Binding Value, ElementName=SliderRozmiar}"/>
         </ScrollViewer>
-        <Grid x:Name="bitch" VerticalAlignment="Bottom" Height="185" Padding="0,25,0,0" CornerRadius="15,15,0,0" Background="{ThemeResource CMapUwpAcrylicBrush}">
-            <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Center" CornerRadius="5,5,5,5" Background="{Binding Background, ElementName=textBox}" Height="{Binding Height, ElementName=comboFonts}" Margin="0,-15,0,0" Padding="15,0,15,0">
-                <RadioButton Content="Default" Checked="Default_FontSelected"/>
-                <RadioButton Content="Italic" Checked="Italic_FontSelected"/>
-                <RadioButton Content="Bold" Checked="Bold_FontSelected"/>
-                <RadioButton Content="Bold and Italic" Checked="BoldandItalic_FontSelected"/>
+<!-- Settings -->
+        <Grid x:Name="settinggrid"
+              VerticalAlignment="Bottom"
+              Height="185"
+              Padding="0,25,0,0"
+              CornerRadius="15,15,0,0"
+              Background="{ThemeResource CMapUwpAcrylicBrush}">
+            <!-- Font style selection -->
+            <StackPanel Orientation="Horizontal"
+                        VerticalAlignment="Top"
+                        HorizontalAlignment="Center"
+                        CornerRadius="5,5,5,5"
+                        Background="{Binding Background, ElementName=textBox}"
+                        Height="{Binding Height, ElementName=comboFonts}"
+                        Margin="0,-15,0,0"
+                        Padding="15,0,15,0">
+                <RadioButton
+                    Content="Default"
+                    Checked="Default_FontSelected"/>
+                <RadioButton
+                    Content="Italic"
+                    Checked="Italic_FontSelected"/>
+                <RadioButton
+                    Content="Bold"
+                    Checked="Bold_FontSelected"/>
+                <RadioButton
+                    Content="Bold and Italic"
+                    Checked="BoldandItalic_FontSelected"/>
             </StackPanel>
-            <TextBox Margin="15,15,15,0" x:Name="textBox" PlaceholderText="What text do ya want to test?" MaxHeight="32" UseLayoutRounding="False"/>
-            <ComboBox Margin="15,30,15,0" PlaceholderText="What font family do you want to use?" x:Name="comboFonts" HorizontalAlignment="Stretch" MaxHeight="32" UseLayoutRounding="False"/>
-            <Slider Margin="15,0,15,0" x:Name="SliderRozmiar" Minimum="15" Maximum="620" RequestedTheme="Dark" FocusVisualPrimaryBrush="{ThemeResource SystemAccentColor}" ValueChanged="SliderRozmiar_ValueChanged" VerticalAlignment="Bottom" UseLayoutRounding="False" MinHeight="50" Padding="0,10,0,0"/>
+            <!-- The rest of the settings -->
+            <TextBox Margin="15,15,15,0"
+                     x:Name="textBox"
+                     PlaceholderText="What text do ya want to test?"
+                     MaxHeight="32"
+                     UseLayoutRounding="False"/>
+            <ComboBox Margin="15,30,15,0"
+                      PlaceholderText="What font family do you want to use?"
+                      x:Name="comboFonts"
+                      HorizontalAlignment="Stretch" 
+                     MaxHeight="32"
+                      UseLayoutRounding="False"/>
+            <Slider Margin="15,0,15,0"
+                    x:Name="SliderRozmiar"
+                    Minimum="15"
+                    Maximum="620"
+                    RequestedTheme="Dark"
+                    FocusVisualPrimaryBrush="{ThemeResource SystemAccentColor}"
+                    ValueChanged="SliderRozmiar_ValueChanged" 
+                   VerticalAlignment="Bottom" 
+                   UseLayoutRounding="False" 
+                   MinHeight="50" 
+                   Padding="0,10,0,0"/>
         </Grid>
 
     </Grid>
