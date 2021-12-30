@@ -9,25 +9,59 @@
     xmlns:canvas="using:Microsoft.Graphics.Canvas.UI.Xaml"
     mc:Ignorable="d"
     muxc:BackdropMaterial.ApplyToRootOrPageBackground="True">
-    <Grid x:Name="gridofthemall" Margin="0,0,0,0" Padding="0,0,0,0" VerticalAlignment="Stretch">
-
+    <Grid x:Name="gridofthemall" Margin="15" VerticalAlignment="Stretch">
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-
-        <Grid x:Name="swaggytextblock" Margin="15,0,15,0">
-            <TextBlock 
+        <Grid VerticalAlignment="Top" Margin="15,25,15,15" IsTapEnabled="False">
+            <StackPanel>
+                <Grid>
+                    <StackPanel>
+                        <TextBlock Text="Text to preview: " FontSize="18" Margin="41,0" HorizontalAlignment="Stretch"/>
+                        <TextBox x:Name="textBox" PlaceholderText="Example: Hello world!" Margin="41" HorizontalAlignment="Stretch"/>
+                    </StackPanel>
+                </Grid>
+                <Grid>
+                    <StackPanel>
+                        <TextBlock Text="Font size: " FontSize="18" Margin="41,0" HorizontalAlignment="Stretch"/>
+                        <Slider x:Name="FontSizeSlider" Minimum="8" Maximum="108" FocusVisualPrimaryBrush="{ThemeResource SystemAccentColor}" ValueChanged="FontSizeSlider_ValueChanged" VerticalAlignment="Bottom" UseLayoutRounding="False" Padding="41"/>
+                    </StackPanel>
+                </Grid>
+                <Grid>
+                    <StackPanel>
+                        <TextBlock Text="Select font to preview: " FontSize="18" Margin="41,0" HorizontalAlignment="Stretch"/>
+                        <ComboBox x:Name="comboFonts" Margin="41" UseLayoutRounding="False"/>
+                    </StackPanel>
+                </Grid>
+            </StackPanel>
+        </Grid>
+        <Grid Margin="15" HorizontalAlignment="Stretch" VerticalAlignment="Bottom">
+            <StackPanel Spacing="10" Margin="41">
+                <TextBlock
+                x:Name="fontsizepreview"
+                Padding="4"
+                Text="Result: "
+                FontSize="18"/>
+                <Grid Background="{ThemeResource SystemBaseLowColor}" CornerRadius="8">
+                    <TextBlock 
                 x:Name="padding" 
                 OpticalMarginAlignment="None" 
-                Padding="0,0,0,0" 
-                FontSize="{Binding Value, ElementName=SliderRozmiar}"  TextWrapping="Wrap" TextReadingOrder="DetectFromContent" Text="{Binding Text, ElementName=textBox}" TextDecorations="None" TextAlignment="Center" Margin="100,100,100,145" Width="{Binding Width, ElementName=textBox}" TextLineBounds="Tight" FontFamily="{Binding SelectedItem, ElementName=comboFonts}" LineStackingStrategy="BlockLineHeight" LineHeight="{Binding FontSize, ElementName=padding}"/>
+                Padding="4" 
+                FontSize="{Binding Value, ElementName=FontSizeSlider}"
+                TextWrapping="Wrap"
+                TextReadingOrder="DetectFromContent" 
+                Text="{Binding Text, ElementName=textBox}"
+                TextDecorations="None" 
+                TextAlignment="Center"
+                Margin="100" 
+                Width="{Binding Width, ElementName=textBox}" 
+                TextLineBounds="Tight" 
+                FontFamily="{Binding SelectedItem, ElementName=comboFonts}"
+                LineStackingStrategy="BlockLineHeight" 
+                LineHeight="{Binding FontSize, ElementName=padding}"/>
+                </Grid>
+            </StackPanel>
         </Grid>
-        <Grid MaxWidth="500" VerticalAlignment="Bottom" Margin="15,0,15,10" Height="{Binding ActualHeight, ElementName=textBox, Mode=OneWay}" IsTapEnabled="False">
-            <Slider x:Name="SliderRozmiar" Minimum="15" Maximum="50" RequestedTheme="Dark" FocusVisualPrimaryBrush="{ThemeResource SystemAccentColor}" ValueChanged="SliderRozmiar_ValueChanged" VerticalAlignment="Bottom" FocusVisualMargin="0,0,0,0" UseLayoutRounding="False" Padding="0,15,0,0" MinHeight="50"/>
-            <TextBox x:Name="textBox" PlaceholderText="What text do ya want to test?" MaxHeight="32" Margin="0,-41,0,41" FocusVisualMargin="0,0,0,0" UseLayoutRounding="False"/>
-            <ComboBox x:Name="comboFonts" Width="{Binding ActualWidth, ElementName=SliderRozmiar}" MaxHeight="32" Margin="0,-78,0,78" FocusVisualMargin="0,0,0,0" UseLayoutRounding="False"></ComboBox>
-        </Grid>
-
     </Grid>
 </Page>

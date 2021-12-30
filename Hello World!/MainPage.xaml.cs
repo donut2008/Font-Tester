@@ -26,7 +26,6 @@ namespace Hello_World_
         {
             this.InitializeComponent();
         }
-
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
@@ -35,9 +34,8 @@ namespace Hello_World_
             comboFonts.ItemsSource = fonts;
         }
 
-        private void SliderRozmiar_ValueChanged(object sender, RangeBaseValueChangedEventArgs e)
+        private void FontSizeSlider_ValueChanged(object sender, RangeBaseValueChangedEventArgs e)
         {
-
         }
     }
 }
